@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import ratings from './ratings.json';
 
 @Component({
   selector: 'app-table',
@@ -13,12 +14,10 @@ export class TableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // read json file
-    this.dataSource.push({ name: 'Sean', rating: 101 });
-    this.dataSource.push({ name: 'John', rating: 94 });
-    this.dataSource.push({ name: 'Max', rating: 92 });
-    this.dataSource.push({ name: 'Ethan', rating: 90 });
-    this.dataSource.push({ name: 'Grant', rating: 86 });
+    for (let key in ratings) {
+      let value = ratings[key as keyof typeof ratings]
+      this.dataSource.push({ name: key, rating: parseInt(value) });
+    }
   }
 
 }
