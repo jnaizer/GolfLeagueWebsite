@@ -14,7 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppComponent,
     LogInDialogComponent,
     TableComponent,
-    FormComponent
+    FormComponent,
   ],
   imports: [
     BrowserModule,
