@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LogInDialogComponent } from '../log-in-dialog/log-in-dialog.component';
 import { ToolbarService } from '../services/toolbar.service';

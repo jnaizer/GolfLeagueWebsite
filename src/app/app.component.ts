@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { FormComponent } from './form/form.component';
-import { LogInDialogComponent } from './log-in-dialog/log-in-dialog.component';
 import { ToolbarService } from './services/toolbar.service';
 
 @Component({
