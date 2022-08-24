@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import ratings from './ratings.json';
 
 @Component({
@@ -19,6 +19,10 @@ export class TableComponent implements OnInit {
       let value = ratings[key as keyof typeof ratings]
       this.dataSource.push({ name: key, rating: parseInt(value) });
     }
+    this.setWindowResize();
+  }
+
+  @HostListener('window:resize', ['$event']) setWindowResize() {
     this.cardWidth = `${window.innerWidth / 2}px`;
   }
 

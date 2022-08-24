@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 declare var require: any;
 
@@ -20,7 +20,10 @@ export class FormComponent implements OnInit {
       player2: [''],
       result: [''],
     });
+    this.setWindowResize();
+  }
 
+  @HostListener('window:resize', ['$event']) setWindowResize() {
     this.cardWidth = `${window.innerWidth / 2}px`;
   }
 
