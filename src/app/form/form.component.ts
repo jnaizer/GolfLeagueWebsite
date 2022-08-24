@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+declare var require: any;
 
 @Component({
   selector: 'app-form',
@@ -23,9 +24,11 @@ export class FormComponent implements OnInit {
     this.cardWidth = `${window.innerWidth / 2}px`;
   }
 
-  onSubmit() {
+  onSubmit(): void {
     // TODO hook the ELO Rating package up to this method
-    console.log('submitte');
+    var EloRating = require('elo-rating');
+    var result = EloRating.calculate(1750, 1535, true);
+    console.log(result)
+    console.log("submitted");
   }
-
 }
