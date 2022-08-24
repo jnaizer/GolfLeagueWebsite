@@ -1,8 +1,3 @@
-<mat-toolbar color="primary" style="margin-bottom: 8px;">
-  <mat-toolbar-row style="justify-content: space-between;">
-    <span>Alpha Sigma Phi Golf League</span>
-    <button mat-raised-button color="accent" (click)="openDialog()">Log in</button>
-  </mat-toolbar-row>
-</mat-toolbar>
+<app-toolbar></app-toolbar>
 <app-form style="padding: 8px;" *ngIf="authorizedUser"></app-form>
 <app-table style="padding: 8px;"></app-table>

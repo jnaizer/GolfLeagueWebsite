@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MatCardModule } from '@angular/material/card';
     LogInDialogComponent,
     TableComponent,
     FormComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,

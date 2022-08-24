@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormComponent } from './form/form.component';
 import { LogInDialogComponent } from './log-in-dialog/log-in-dialog.component';
+import { ToolbarService } from './services/toolbar.service';
 
 @Component({
   selector: 'app-root',
@@ -12,21 +13,10 @@ export class AppComponent implements OnInit {
 
   authorizedUser: boolean = false;
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private toolbarService: ToolbarService) { }
 
-  ngOnInit(): void { }
-
-  openDialog() {
-    const dialogRef = this.dialog.open(LogInDialogComponent, {
-      width: `${window.innerWidth / 4}px`,
-      height: `${window.innerHeight / 4}px`,
-      disableClose: true,
-    });
-    dialogRef.afterClosed().subscribe(data => {
-      if (data) {
-        this.authorizedUser = data && data.enteredPin == '1234'; 
-      }
-    });
+  ngOnInit(): void {
+    this.toolbarService.onPinEntered.subscribe(bool => { this.authorizedUser = bool })
   }
 
 }
