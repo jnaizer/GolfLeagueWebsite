@@ -10,6 +10,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 export class FormComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
+  cardWidth: string = '';
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -19,6 +20,8 @@ export class FormComponent implements OnInit {
       player2: [''],
       result: [''],
     });
+
+    this.cardWidth = `${window.innerWidth / 2}px`;
   }
 
   onSubmit() {

@@ -1,13 +1,14 @@
 <h2 mat-dialog-title>Enter PIN</h2>
 <mat-dialog-content>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="standard">
-            <mat-label>First Name</mat-label>
-            <input matInput type="text" inputmode="tel" formControlName="enteredPin" #firstName>
+    <form [formGroup]="form">
+        <mat-form-field style="width: 100%;" appearance="standard">
+            <mat-label>PIN</mat-label>
+            <input matInput type="text" formControlName="enteredPin">
         </mat-form-field>
-        <!-- Submit and Cancel Buttons -->
-        <mat-dialog-actions>
-            <button mat-stroked-button color="primary" type="submit">Submit</button>
-        </mat-dialog-actions>
     </form>
 </mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+    <button mat-raised-button color="accent" (click)="onClose()">Cancel</button>
+</mat-dialog-actions>
+

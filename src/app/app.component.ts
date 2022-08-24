@@ -18,13 +18,14 @@ export class AppComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(LogInDialogComponent, {
+      width: `${window.innerWidth / 4}px`,
+      height: `${window.innerHeight / 4}px`,
       disableClose: true,
     });
     dialogRef.afterClosed().subscribe(data => {
-      if (data && data.enteredPin == 'weiner') {
-        this.authorizedUser = true;
+      if (data) {
+        this.authorizedUser = data && data.enteredPin == '1234'; 
       }
-      console.log(this.authorizedUser)
     });
   }
 

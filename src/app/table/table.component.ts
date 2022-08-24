@@ -10,6 +10,7 @@ export class TableComponent implements OnInit {
 
   displayedColumns = ['name', 'rating'];
   dataSource: { name: string, rating: number }[] = [];
+  cardWidth: string = '';
 
   constructor() { }
 
@@ -18,6 +19,7 @@ export class TableComponent implements OnInit {
       let value = ratings[key as keyof typeof ratings]
       this.dataSource.push({ name: key, rating: parseInt(value) });
     }
+    this.cardWidth = `${window.innerWidth / 2}px`;
   }
 
 }
