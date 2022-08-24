@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -19,13 +19,16 @@ export class FormComponent implements OnInit {
       player2: [''],
       result: [''],
     });
+    this.setWindowResize();
+  }
 
+  @HostListener('window:resize', ['$event']) setWindowResize() {
     this.cardWidth = `${window.innerWidth / 2}px`;
   }
 
   onSubmit() {
     // TODO hook the ELO Rating package up to this method
-    console.log('submitte');
+    console.log(this.form.value);
   }
 
 }
