@@ -35,7 +35,7 @@ export class FormComponent implements OnInit {
     var EloRating = require('elo-rating');
     const player = this.form.value.player1;
     const opponent = this.form.value.player2;
-    let winner = this.form.value.winner;
+    const winner = this.form.value.result;
     let playerRating = null;
     let opponentRating = null;
 
