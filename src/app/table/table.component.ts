@@ -1,5 +1,4 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import ratings from './ratings.json';
 import { DataService } from '../services/data.service';
 import { Player } from '../services/data.service';
 
