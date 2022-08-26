@@ -1,5 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import ratings from './ratings.json';
+import { DataService } from '../services/data.service';
+import { Player } from '../services/data.service';
+
 
 @Component({
   selector: 'app-table',
@@ -9,16 +12,22 @@ import ratings from './ratings.json';
 export class TableComponent implements OnInit {
 
   displayedColumns = ['name', 'rating'];
-  dataSource: { name: string, rating: number }[] = [];
+  dataSource: Player[] = [];
   cardWidth: string = '';
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    for (let key in ratings) {
-      let value = ratings[key as keyof typeof ratings]
-      this.dataSource.push({ name: key, rating: parseInt(value) });
-    }
+    this.dataService.players.subscribe(players => {
+      this.dataSource = players.sort((player1, player2) => {
+        if (player1.rating < player2.rating) {
+          return 1;
+        } else if (player1.rating > player2.rating) {
+          return -1;
+        }
+        return 0;
+      });
+    })
     this.setWindowResize();
   }
 

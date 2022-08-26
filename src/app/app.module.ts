@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LogInDialogComponent } from './log-in-dialog/log-in-dialog.component';
 import { TableComponent } from './table/table.component';
 import { FormComponent } from './form/form.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatDialogModule } from '@angular/material/dialog';
@@ -15,7 +16,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
-import { ToolbarComponent } from './toolbar/toolbar.component';
+
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from "@angular/fire/compat";
 
 
 @NgModule({
@@ -37,6 +42,9 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatTableModule,
     MatToolbarModule,
     MatCardModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
   bootstrap: [AppComponent]
