@@ -40,7 +40,5 @@ export class ToolbarComponent implements OnInit {
       maxHeight: '300px',
       disableClose: true,
     });
-    dialogRef.afterClosed().subscribe(data => {
-    });
   }
 }
