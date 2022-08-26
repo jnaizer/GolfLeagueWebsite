@@ -7,7 +7,7 @@
             <button mat-menu-item>
                 <mat-icon>people</mat-icon>
                 <span>Standings</span>
-              </button>
+            </button>
             <button mat-menu-item>
               <mat-icon>history</mat-icon>
               <span>Game History</span>
@@ -16,8 +16,12 @@
               <mat-icon>person</mat-icon>
               <span>Player Records</span>
             </button>
+            <button mat-menu-item (click)="openAboutDialog()">
+                <mat-icon>info</mat-icon>
+                <span>About</span>
+            </button>
           </mat-menu>
-        <span style="text-align:center">Alpha Sigma Phi Golf League</span>
-        <button mat-raised-button color="accent" (click)="openDialog()">Log in</button>
+        <span id="mainTitle" style="text-align:center;">Alpha Sigma Phi Golf League</span>
+        <button mat-raised-button color="accent" (click)="openLoginDialog()">Log in</button>
     </mat-toolbar-row>
 </mat-toolbar>
