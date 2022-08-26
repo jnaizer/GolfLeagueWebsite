@@ -1,6 +1,27 @@
 <mat-toolbar color="primary" style="margin-bottom: 8px;">
     <mat-toolbar-row style="justify-content: space-between;">
-        <span>Miami OH Alpha Sigma Phi Golf League</span>
-        <button mat-raised-button color="accent" (click)="openDialog()">Log in</button>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+            <mat-icon>people</mat-icon>
+            <span>Standings</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>history</mat-icon>
+            <span>Game History</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>person</mat-icon>
+            <span>Player Records</span>
+        </button>
+        <button mat-menu-item (click)="openAboutDialog()">
+            <mat-icon>info</mat-icon>
+            <span>About</span>
+        </button>
+        </mat-menu>
+    <span id="mainTitle" style="text-align:center;">Alpha Sigma Phi Golf League</span>
+    <button mat-raised-button color="accent" (click)="openLoginDialog()">Log in</button>    
     </mat-toolbar-row>
 </mat-toolbar>

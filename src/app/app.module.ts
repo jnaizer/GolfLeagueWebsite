@@ -8,6 +8,7 @@ import { LogInDialogComponent } from './log-in-dialog/log-in-dialog.component';
 import { TableComponent } from './table/table.component';
 import { FormComponent } from './form/form.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { AboutDialogueComponent } from './about-dialogue/about-dialogue.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatDialogModule } from '@angular/material/dialog';
@@ -16,6 +17,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -30,6 +35,7 @@ import { AngularFireModule } from "@angular/fire/compat";
     TableComponent,
     FormComponent,
     ToolbarComponent,
+    AboutDialogueComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +48,13 @@ import { AngularFireModule } from "@angular/fire/compat";
     MatTableModule,
     MatToolbarModule,
     MatCardModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+	  MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule,
+	  provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase),  
   ],
   providers: [],
   bootstrap: [AppComponent]

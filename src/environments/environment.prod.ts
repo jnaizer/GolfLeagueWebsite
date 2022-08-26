@@ -11,5 +11,5 @@ export const environment = {
     messagingSenderId: '695250648392',
     measurementId: 'G-FLPWWPMFVB',
   },
-  authPin: '06121845',
+  authPin: '18451845',
 };
