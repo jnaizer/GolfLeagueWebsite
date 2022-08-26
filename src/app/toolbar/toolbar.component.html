@@ -1,6 +1,23 @@
 <mat-toolbar color="primary" style="margin-bottom: 8px;">
     <mat-toolbar-row style="justify-content: space-between;">
-        <span>Alpha Sigma Phi Golf League</span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>people</mat-icon>
+                <span>Standings</span>
+              </button>
+            <button mat-menu-item>
+              <mat-icon>history</mat-icon>
+              <span>Game History</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>person</mat-icon>
+              <span>Player Records</span>
+            </button>
+          </mat-menu>
+        <span style="text-align:center">Alpha Sigma Phi Golf League</span>
         <button mat-raised-button color="accent" (click)="openDialog()">Log in</button>
     </mat-toolbar-row>
 </mat-toolbar>

@@ -16,6 +16,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -24,7 +28,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     LogInDialogComponent,
     TableComponent,
     FormComponent,
-    ToolbarComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,10 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatTableModule,
     MatToolbarModule,
     MatCardModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
