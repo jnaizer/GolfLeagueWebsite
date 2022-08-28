@@ -10,7 +10,7 @@ import { Player } from '../services/data.service';
 })
 export class TableComponent implements OnInit {
 
-  displayedColumns = ['name', 'rating'];
+  displayedColumns = ['#', 'name', 'rating'];
   dataSource: Player[] = [];
   cardWidth: string = '';
 
