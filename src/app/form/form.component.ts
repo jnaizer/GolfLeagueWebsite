@@ -17,6 +17,8 @@ export class FormComponent implements OnInit {
   cardWidth: string = '';
   dataSource: Player[] = [];
   playerNames: string[] = [];
+  playerSelected : string = '';
+  opponentSelected: string = '';
 
   constructor(private formBuilder: FormBuilder, private dataService: DataService) {}
 
@@ -28,8 +30,8 @@ export class FormComponent implements OnInit {
     });
     this.setWindowResize();
 
-    this.dataService.players.subscribe(players => {
-      this.dataSource = players
+    this.dataService.players.subscribe(player => {
+      this.dataSource = player
     });
   }
 
@@ -37,7 +39,7 @@ export class FormComponent implements OnInit {
     this.cardWidth = `${window.innerWidth / 2}px`;
   }
 
-  async updatePlayers() {
+  updatePlayers() {
     this.playerNames = [];
     for (let i = 0; i < this.dataSource.length; i++) {
       this.playerNames.push(this.dataSource[i].name)

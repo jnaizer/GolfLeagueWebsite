@@ -21,7 +21,8 @@
             <p>
                 <mat-form-field class="full-width">
                     <mat-select placeholder="Select Winner" formControlName="result">
-                        <mat-option *ngFor="let player of playerNames" [value]="player" >{{ player }}</mat-option>
+                        <mat-option [value]="this.form.value.player1">{{ this.form.value.player1 }}</mat-option>
+                        <mat-option [value]="this.form.value.player2">{{ this.form.value.player2 }}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </p>
