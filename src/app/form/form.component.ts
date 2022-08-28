@@ -2,6 +2,8 @@ import { Component, EnvironmentInjector, HostListener, OnInit } from '@angular/c
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
+import { DataService } from '../services/data.service';
+import { Player } from '../services/data.service';
 declare var require: any;
 
 @Component({
@@ -13,8 +15,10 @@ export class FormComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
   cardWidth: string = '';
+  dataSource: Player[] = [];
+  playerNames: string[] = [];
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private dataService: DataService) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -23,10 +27,21 @@ export class FormComponent implements OnInit {
       result: [''],
     });
     this.setWindowResize();
+
+    this.dataService.players.subscribe(players => {
+      this.dataSource = players
+    });
   }
 
   @HostListener('window:resize', ['$event']) setWindowResize() {
     this.cardWidth = `${window.innerWidth / 2}px`;
+  }
+
+  async updatePlayers() {
+    this.playerNames = [];
+    for (let i = 0; i < this.dataSource.length; i++) {
+      this.playerNames.push(this.dataSource[i].name)
+    }
   }
 
   async onSubmit() {
