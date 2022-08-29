@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToolbarService } from './services/toolbar.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,12 +8,8 @@ import { ToolbarService } from './services/toolbar.service';
 })
 export class AppComponent implements OnInit {
 
-  authorizedUser: boolean = false;
+  constructor() { }
 
-  constructor(private toolbarService: ToolbarService) { }
-
-  ngOnInit(): void {
-    this.toolbarService.onPinEntered.subscribe(bool => { this.authorizedUser = bool })
-  }
+  ngOnInit(): void { }
 
 }
