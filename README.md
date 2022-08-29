@@ -1,9 +1,8 @@
 # From the Authors
 
 This project was designed and written by Sean Glaze and John Naizer for Alpha Sigma Phi at Miami University's Golf League.
-For viewing purposes, the pin for the log in is 06121845.
 We just kindly ask that you do not attempt to manipulate the data in any way.
-This project is hosted on alphasiggolfleague.com.
+This project is hosted on https://alphasiggolfleague.com.
 
 # GolfLeagueWebsite
 
