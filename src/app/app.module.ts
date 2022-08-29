@@ -4,11 +4,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LogInDialogComponent } from './log-in-dialog/log-in-dialog.component';
-import { TableComponent } from './table/table.component';
-import { FormComponent } from './form/form.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { AboutDialogueComponent } from './about-dialogue/about-dialogue.component';
+import { LogInDialogComponent } from './components/log-in-dialog/log-in-dialog.component';
+import { TableComponent } from './components/standings/table/table.component';
+import { FormComponent } from './components/standings/form/form.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { AboutDialogueComponent } from './components/about-dialogue/about-dialogue.component';
+import { GameHistoryComponent } from './components/game-history/game-history.component';
+import { GameCardComponent } from './components/game-history/game-card/game-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatDialogModule } from '@angular/material/dialog';
@@ -21,15 +23,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from "@angular/fire/compat";
-import {MatSelectModule} from '@angular/material/select';
+
 import { FormsModule } from '@angular/forms';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -39,7 +42,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     TableComponent,
     FormComponent,
     ToolbarComponent,
-    AboutDialogueComponent
+    AboutDialogueComponent,
+    StandingsComponent,
+    GameHistoryComponent,
+    GameCardComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +69,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 	  provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebase),  
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
