@@ -28,6 +28,8 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from "@angular/fire/compat";
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -46,12 +48,14 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
     MatButtonModule,
     MatTableModule,
     MatToolbarModule,
     MatCardModule,
 	  MatIconModule,
     MatSidenavModule,
+    MatDatepickerModule,
     MatListModule,
     MatMenuModule,
     MatSelectModule,

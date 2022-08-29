@@ -25,7 +25,9 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       player1: [''],
+      player1Score: [''],
       player2: [''],
+      player2Score: [''],
       result: [''],
     });
     this.setWindowResize();
@@ -50,43 +52,43 @@ export class FormComponent implements OnInit {
     // setting up variables
     const db = getFirestore();
     var EloRating = require('elo-rating');
-    const player = this.form.value.player1;
-    const opponent = this.form.value.player2;
-    const winner = this.form.value.result;
-    let playerRating = null;
-    let opponentRating = null;
+    const player1 = this.form.value.player1;
+    const player2 = this.form.value.player2;
+    const result = this.form.value.result;
+    let player1Rating = null;
+    let player2Rating = null;
 
     // getting player rating
-    const playerDoc = doc(db, "users", player);
-    const playerDocSnap = await getDoc(playerDoc);
-    if (playerDocSnap.exists()) {
-      playerRating = playerDocSnap.data()['rating'];
+    const player1Doc = doc(db, "users", player1);
+    const player1DocSnap = await getDoc(player1Doc);
+    if (player1DocSnap.exists()) {
+      player1Rating = player1DocSnap.data()['rating'];
     } else {
       console.log("No such document!");
     }
 
     // getting opponent rating
-    const opponentDoc = doc(db, "users", opponent);
-    const opponentDocSnap = await getDoc(opponentDoc);
-    if (opponentDocSnap.exists()) {
-      opponentRating = opponentDocSnap.data()['rating'];
+    const player2Doc = doc(db, "users", player2);
+    const player2DocSnap = await getDoc(player2Doc);
+    if (player2DocSnap.exists()) {
+      player2Rating = player2DocSnap.data()['rating'];
     } else {
       console.log("No such document!");
     }
 
     // calculating result
-    var result = EloRating.calculate(playerRating, opponentRating, winner === player);
+    var eloResult = EloRating.calculate(player1Rating, player2Rating, result === player1);
 
     // setting new player rating
-    await setDoc(doc(db, "users", player), {
-      name: player,
-      rating: result.playerRating
+    await setDoc(doc(db, "users", player1), {
+      name: player1,
+      rating: eloResult.playerRating
     });
 
     // setting new opponent rating
-    await setDoc(doc(db, "users", opponent), {
-      name: opponent,
-      rating: result.opponentRating
+    await setDoc(doc(db, "users", player2), {
+      name: player2,
+      rating: eloResult.opponentRating
     });
   }
 }
