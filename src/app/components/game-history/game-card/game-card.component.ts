@@ -7,11 +7,12 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
 })
 export class GameCardComponent implements OnInit {
 
+  @Input() gameDate: string = '';
   @Input() player1Name: string = '';
   @Input() player1Score: number = 0;
   @Input() player2Name: string = '';
   @Input() player2Score: number = 0;
-  @Input() gameDate: string = '';
+  @Input() result: string = '';
   cardWidth: string = '';
 
   constructor() { }

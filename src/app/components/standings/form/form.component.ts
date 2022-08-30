@@ -34,7 +34,6 @@ export class FormComponent implements OnInit {
     this.dataService.players.subscribe(player => {
       this.allPlayers = player
     });
-
   }
 
   @HostListener('window:resize', ['$event']) setWindowResize() {
@@ -65,7 +64,19 @@ export class FormComponent implements OnInit {
     const result = this.form.value.result;
     const player1Strokes = this.form.value.player1Strokes;
     const player2Strokes = this.form.value.player2Strokes;
-    const date = this.form.value.date;
+    const gameDate = this.form.value.date;
+
+    const docName = player1.name + player2.name + player1Strokes + player2Strokes + gameDate;
+
+    // storing game in game history
+    await setDoc(doc(db, "gameData", docName), {
+      gameDate: gameDate,
+      player1Name: player1.name,
+      player1Score: player1Strokes,
+      player2Name: player2.name,
+      player2Score: player2Strokes,
+      result: result.name
+    });
 
     // calculating result
     var eloResult = EloRating.calculate(player1.rating, player2.rating, result.name === player1.name);

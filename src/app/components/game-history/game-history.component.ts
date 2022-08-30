@@ -21,6 +21,7 @@ export class GameHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.games.subscribe(games => { this.games = games })
+    
   }
 
 }
