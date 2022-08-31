@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DataService, Game } from 'src/app/services/data.service';
 
 @Component({
@@ -16,13 +16,13 @@ export class GameHistoryComponent implements OnInit {
   //];
 
   games: Game[] = [];
+  visibility: string = '';
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.dataService.games.subscribe(games => { this.games = games })
     
-    //document.getElementById('noData')?.style.visibility = 'visible';
   }
 
 }

@@ -3,8 +3,8 @@
       Game History
     </h2>
 </div>
-<div>
-    <h3 id="noData">
+<div [ngStyle]="{'visibility': games.length > 0 ? 'hidden' : 'visible'}">
+    <h3 style="text-align: center;">
         No Game History to Display
     </h3>
 </div>
