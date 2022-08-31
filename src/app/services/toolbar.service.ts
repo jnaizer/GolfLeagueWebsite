@@ -1,16 +1,18 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ToolbarService {
 
-  onPinEntered: EventEmitter<boolean> = new EventEmitter<boolean>();
+  _authorizedUser: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  authorizedUser: Observable<boolean> = this._authorizedUser.asObservable();
 
   constructor() { }
 
   pinEntered(correctPin: boolean) {
-    this.onPinEntered.emit(correctPin);
+    this._authorizedUser.next(correctPin);
   }
 
 }

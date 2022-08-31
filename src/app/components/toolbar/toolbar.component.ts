@@ -14,8 +14,7 @@ export class ToolbarComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private toolbarService: ToolbarService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   openLoginDialog() {
     const dialogRef = this.dialog.open(LogInDialogComponent, {
