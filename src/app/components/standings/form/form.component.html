@@ -1,34 +1,46 @@
 <mat-card class="mat-elevation-z8" style="margin: 0 auto;" [ngStyle]="{ 'width': cardWidth }">
-    <mat-card-header>
+    <div style="text-align: center;">
         <h2>Record Player Data</h2>
-    </mat-card-header>
+    </div>
     <mat-card-content>
         <form class="stack-contents-vertically" [formGroup]="form">
-            <p>
-                <mat-form-field class="full-width">
-                    <mat-select (click)="updatePlayers()" placeholder="Select Player" formControlName="player1">
-                        <mat-option *ngFor="let player of playerNames" [value]="player" >{{ player }}</mat-option>
+            <div>
+                <mat-form-field class="name-width">
+                    <mat-select placeholder="Select Player" formControlName="player1" required>
+                        <mat-option (click)="updatePlayer1()" *ngFor="let player of allPlayers" [value]="player" >{{ player.name }}</mat-option>
                     </mat-select>
                 </mat-form-field>
-            </p>
-            <p>
-                <mat-form-field class="full-width">
-                    <mat-select placeholder="Select Opponent" formControlName="player2">
-                        <mat-option *ngFor="let player of playerNames" [value]="player" >{{ player }}</mat-option>
+                <mat-form-field class="stroke-width">
+                    <input matInput type="number" min="0" placeholder="Play. Strokes" formControlName="player1Strokes">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="name-width">
+                    <mat-select placeholder="Select Opponent" formControlName="player2" required>
+                        <mat-option (click)="updatePlayer2()" *ngFor="let player of allPlayers" [value]="player" >{{ player.name }}</mat-option>
                     </mat-select>
                 </mat-form-field>
-            </p>
+                <mat-form-field class="stroke-width">
+                    <input matInput type="number" min="0" placeholder="Opp. Strokes" formControlName="player2Strokes">
+                </mat-form-field>
+            </div>
+
             <p>
-                <mat-form-field class="full-width">
-                    <mat-select placeholder="Select Winner" formControlName="result">
-                        <mat-option [value]="this.form.value.player1">{{ this.form.value.player1 }}</mat-option>
-                        <mat-option [value]="this.form.value.player2">{{ this.form.value.player2 }}</mat-option>
+                <mat-form-field class="name-width">
+                    <mat-select placeholder="Select Winner" formControlName="result" required>
+                        <mat-option *ngFor="let player of playersSelected" [value]="player" >{{ player.name }}</mat-option>
                     </mat-select>
                 </mat-form-field>
+                <mat-form-field class="stroke-width">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput type="date" formControlName="date">
+                </mat-form-field>
             </p>
+
         </form>
     </mat-card-content>
     <mat-card-actions align="end">
-        <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+        <button mat-raised-button color="primary" disabled={{this.form.invalid}} (click)="onSubmit()">Submit</button>
     </mat-card-actions>
 </mat-card>

@@ -7,11 +7,12 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
 })
 export class GameCardComponent implements OnInit {
 
+  @Input() gameDate: string = '';
   @Input() player1Name: string = '';
   @Input() player1Score: number = 0;
   @Input() player2Name: string = '';
   @Input() player2Score: number = 0;
-  @Input() gameDate: string = '';
+  @Input() result: string = '';
   cardWidth: string = '';
 
   constructor() { }
@@ -21,7 +22,7 @@ export class GameCardComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event']) setWindowResize() {
-    this.cardWidth = `${window.innerWidth / 3}px`;
+    this.cardWidth = `${window.innerWidth / 2}px`;
   }
 
 }
