@@ -13,7 +13,7 @@ export class StandingsComponent implements OnInit {
   constructor(private toolbarService: ToolbarService) { }
 
   ngOnInit(): void {
-    this.toolbarService.onPinEntered.subscribe(bool => { this.authorizedUser = bool })
+    this.toolbarService.onPinEntered.subscribe(bool => { this.authorizedUser = bool });
   }
 
 }

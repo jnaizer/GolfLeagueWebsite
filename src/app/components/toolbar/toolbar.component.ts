@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AboutDialogueComponent } from '../about-dialogue/about-dialogue.component';
-import { LogInDialogComponent } from '../log-in-dialog/log-in-dialog.component';
+import { LogInDialogComponent } from './log-in-dialog/log-in-dialog.component';
 import { ToolbarService } from '../../services/toolbar.service';
 import { environment } from 'src/environments/environment';
 
