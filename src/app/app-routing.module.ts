@@ -4,8 +4,8 @@ import { GameHistoryComponent } from './components/game-history/game-history.com
 import { StandingsComponent } from './components/standings/standings.component';
 
 const routes: Routes = [
-  { path: 'standings', component: StandingsComponent },
-  { path: 'game-history', component: GameHistoryComponent },
+  { path: '/standings', component: StandingsComponent },
+  { path: '/game-history', component: GameHistoryComponent },
   { path: '', redirectTo: '/standings', pathMatch: 'full' },
 ];
 
