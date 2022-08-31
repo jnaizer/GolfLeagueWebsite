@@ -22,6 +22,7 @@ export class GameHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.games.subscribe(games => { this.games = games })
     
+    //document.getElementById('noData')?.style.visibility = 'visible';
   }
 
 }

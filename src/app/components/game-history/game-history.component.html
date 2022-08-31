@@ -1,4 +1,14 @@
-<mat-grid-list cols="1" rowHeight="150px" gutterSize="0px">
+<div style="text-align: center;">
+    <h2>
+      Game History
+    </h2>
+</div>
+<div>
+    <h3 id="noData">
+        No Game History to Display
+    </h3>
+</div>
+<mat-grid-list cols="1" rowHeight="190px" gutterSize="0px">
     <mat-grid-tile *ngFor="let game of games">
         <app-game-card 
             [gameDate]="game.gameDate"

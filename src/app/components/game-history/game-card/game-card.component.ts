@@ -22,7 +22,7 @@ export class GameCardComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event']) setWindowResize() {
-    this.cardWidth = `${window.innerWidth / 3}px`;
+    this.cardWidth = `${window.innerWidth / 2}px`;
   }
 
 }

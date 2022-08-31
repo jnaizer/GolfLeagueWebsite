@@ -65,12 +65,14 @@ export class FormComponent implements OnInit {
     const player1Strokes = this.form.value.player1Strokes;
     const player2Strokes = this.form.value.player2Strokes;
     const gameDate = this.form.value.date;
+    const gameDateHelper = new Date(gameDate);
+    const gameDateFinal = gameDateHelper.getDay() + '/' + gameDateHelper.getMonth() + '/' + gameDateHelper.getFullYear();
 
     const docName = player1.name + player2.name + player1Strokes + player2Strokes + gameDate;
 
     // storing game in game history
     await setDoc(doc(db, "gameData", docName), {
-      gameDate: gameDate,
+      gameDate: gameDateFinal,
       player1Name: player1.name,
       player1Score: player1Strokes,
       player2Name: player2.name,
