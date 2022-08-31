@@ -1,9 +1,10 @@
-import { AfterContentInit, Component, EnvironmentInjector, HostListener, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { doc, setDoc, getDoc } from "firebase/firestore";
+import { Component, HostListener, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { doc, setDoc } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
 import { DataService } from '../../../services/data.service';
 import { Player } from '../../../services/data.service';
+
 declare var require: any;
 
 @Component({
@@ -99,5 +100,7 @@ export class FormComponent implements OnInit {
     while (this.playersSelected.length > 0) {
       this.playersSelected.pop();
     }
+
   }
+  
 }

@@ -1,7 +1,8 @@
 <mat-card class="mat-elevation-z8" style="margin: 0 auto;" [ngStyle]="{ 'width': cardWidth }">
-    <div style="text-align: center;">
+    <mat-card-title style="text-align: center;">
         <h2>Record Player Data</h2>
-    </div>
+    </mat-card-title>
+    
     <mat-card-content>
         <form class="stack-contents-vertically" [formGroup]="form">
             <div>
@@ -37,9 +38,9 @@
                     <input matInput type="date" formControlName="date">
                 </mat-form-field>
             </p>
-
         </form>
     </mat-card-content>
+
     <mat-card-actions align="end">
         <button mat-raised-button color="primary" disabled={{this.form.invalid}} (click)="onSubmit()">Submit</button>
     </mat-card-actions>

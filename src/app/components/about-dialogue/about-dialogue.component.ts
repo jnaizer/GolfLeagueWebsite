@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -9,12 +8,12 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class AboutDialogueComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private dialogRef: MatDialogRef<AboutDialogueComponent>) { }
+  constructor(private dialogRef: MatDialogRef<AboutDialogueComponent>) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   onClose() {
     this.dialogRef.close();
   }
+
 }
