@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LogInDialogComponent } from './components/log-in-dialog/log-in-dialog.component';
+import { LogInDialogComponent } from './components/toolbar/log-in-dialog/log-in-dialog.component';
 import { TableComponent } from './components/standings/table/table.component';
 import { FormComponent } from './components/standings/form/form.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
