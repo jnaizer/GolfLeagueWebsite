@@ -9,3 +9,7 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
 html { background-color: #EEEEEE; }
 html, body, app-root { height: 100%; overflow-x: hidden;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; position: relative}
+
+.custom-dialog-container .mat-dialog-container {
+    padding-bottom: 10px;
+}

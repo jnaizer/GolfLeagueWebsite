@@ -34,9 +34,9 @@ export class ToolbarComponent implements OnInit {
   openAboutDialog() {
     const dialogRef = this.dialog.open(AboutDialogueComponent, {
       width: `${window.innerWidth / 4}px`,
+      panelClass: 'custom-dialog-container',
       minWidth: '300px',
-      minHeight: '280px',
-      height: `${window.innerHeight / 3}px`,
+      minHeight: `${window.innerWidth > 600 ? 100 : 280}`,
       disableClose: true,
     });
   }
