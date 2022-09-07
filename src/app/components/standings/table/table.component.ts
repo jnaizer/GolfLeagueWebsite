@@ -12,7 +12,6 @@ export class TableComponent implements OnInit {
 
   displayedColumns = ['#', 'name', 'rating'];
   dataSource: Player[] = [];
-  cardWidth: string = '';
 
   constructor(private dataService: DataService) { }
 
@@ -26,12 +25,7 @@ export class TableComponent implements OnInit {
         }
         return 0;
       });
-    })
-    this.setWindowResize();
-  }
-
-  @HostListener('window:resize', ['$event']) setWindowResize() {
-    this.cardWidth = `${window.innerWidth / 2}px`;
+    });
   }
 
 }

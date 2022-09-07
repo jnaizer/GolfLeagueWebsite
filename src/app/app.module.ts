@@ -35,6 +35,8 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from "@angular/fire/compat";
+import { PlayerRecordsComponent } from './components/player-records/player-records.component';
+import { CardWrapperComponent } from './components/card-wrapper/card-wrapper.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { AngularFireModule } from "@angular/fire/compat";
     AboutDialogueComponent,
     StandingsComponent,
     GameHistoryComponent,
-    GameCardComponent
+    GameCardComponent,
+    PlayerRecordsComponent,
+    CardWrapperComponent
   ],
   imports: [
     BrowserModule,

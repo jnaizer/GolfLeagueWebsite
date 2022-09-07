@@ -1,0 +1,13 @@
+<app-card-wrapper>
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>Select Player</mat-label>
+            <mat-select [(value)]="selectedPlayerName">
+                <mat-option *ngFor="let player of players" [value]="player.name">
+                    {{ player.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <p>{{ selectedPlayerName }}</p>
+    </form>
+</app-card-wrapper>
