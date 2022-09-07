@@ -18,25 +18,11 @@ export class PlayerRecordsComponent implements OnInit {
   selectedPlayerAverageScore: number = 0;
   selectedPlayerRecord: string = '';
 
-  divWidth: string = '';
-  divMargin: string = '';
-
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.dataService.players.subscribe(players => this.players = players);
     this.dataService.games.subscribe(games => this.games = games);
-    this.onWindowResize();
-  }
-  
-  @HostListener('window:resize', ['$event']) onWindowResize() {
-    if (window.innerWidth <= 1000) {
-      this.divWidth = '50%';
-      this.divMargin = '32px';
-    } else {
-      this.divWidth = '20%';
-      this.divMargin = '0px';
-    }
   }
 
   onSelectionChange(event: MatSelectChange): void {
