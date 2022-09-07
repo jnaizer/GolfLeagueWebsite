@@ -16,6 +16,10 @@
                 <mat-icon>person</mat-icon>
                 <span>Player Records</span>
             </button>
+            <button mat-menu-item routerLink="/record-game" disabled={{!authorizedUser}}>
+                <mat-icon>add</mat-icon>
+                <span>Record Game</span>
+            </button>
             <button mat-menu-item (click)="openAboutDialog()">
                 <mat-icon>info</mat-icon>
                 <span>About</span>

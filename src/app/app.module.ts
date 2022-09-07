@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LogInDialogComponent } from './components/toolbar/log-in-dialog/log-in-dialog.component';
 import { TableComponent } from './components/standings/table/table.component';
-import { FormComponent } from './components/standings/form/form.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AboutDialogueComponent } from './components/about-dialogue/about-dialogue.component';
 import { GameHistoryComponent } from './components/game-history/game-history.component';
@@ -37,6 +36,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from "@angular/fire/compat";
 import { PlayerRecordsComponent } from './components/player-records/player-records.component';
 import { CardWrapperComponent } from './components/card-wrapper/card-wrapper.component';
+import { RecordGameComponent } from './components/record-game/record-game.component';
 
 
 @NgModule({
@@ -44,14 +44,14 @@ import { CardWrapperComponent } from './components/card-wrapper/card-wrapper.com
     AppComponent,
     LogInDialogComponent,
     TableComponent,
-    FormComponent,
     ToolbarComponent,
     AboutDialogueComponent,
     StandingsComponent,
     GameHistoryComponent,
     GameCardComponent,
     PlayerRecordsComponent,
-    CardWrapperComponent
+    CardWrapperComponent,
+    RecordGameComponent
   ],
   imports: [
     BrowserModule,

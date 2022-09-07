@@ -12,9 +12,13 @@ import { environment } from 'src/environments/environment';
 })
 export class ToolbarComponent implements OnInit {
 
+  authorizedUser: boolean = false;
+
   constructor(private dialog: MatDialog, private toolbarService: ToolbarService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.toolbarService.authorizedUser.subscribe(bool => { this.authorizedUser = bool });
+  }
 
   openLoginDialog() {
     const dialogRef = this.dialog.open(LogInDialogComponent, {
