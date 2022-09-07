@@ -124,7 +124,6 @@ export class FormComponent implements OnInit {
     // calculating result
     var eloResult = EloRating.calculate(player1.rating, player2.rating, result.name === player1.name);
 
-
     var player1EloDiff = eloResult.playerRating - player1.rating;
     var player2EloDiff = eloResult.opponentRating - player2.rating;
 
@@ -147,7 +146,5 @@ export class FormComponent implements OnInit {
     while (this.playersSelected.length > 0) {
       this.playersSelected.pop();
     }
-
   }
-  
 }
