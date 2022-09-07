@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import { DataService, Game, Player } from 'src/app/services/data.service';
 
@@ -18,11 +18,25 @@ export class PlayerRecordsComponent implements OnInit {
   selectedPlayerAverageScore: number = 0;
   selectedPlayerRecord: string = '';
 
+  divWidth: string = '';
+  divMargin: string = '';
+
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.dataService.players.subscribe(players => this.players = players);
     this.dataService.games.subscribe(games => this.games = games);
+    this.onWindowResize();
+  }
+  
+  @HostListener('window:resize', ['$event']) onWindowResize() {
+    if (window.innerWidth <= 1000) {
+      this.divWidth = '50%';
+      this.divMargin = '32px';
+    } else {
+      this.divWidth = '20%';
+      this.divMargin = '0px';
+    }
   }
 
   onSelectionChange(event: MatSelectChange): void {
@@ -54,6 +68,27 @@ export class PlayerRecordsComponent implements OnInit {
     });
     this.selectedPlayerAverageScore = cummScore / (numOfRounds / 2);
     this.selectedPlayerRecord = `${wins}-${totalMatches - wins}`;
+    this.sortGames();
+  }
+
+  sortGames() {
+    for (let i = 0; i < this.gamesInvolvingSelectedPlayer.length; i++) {
+      this.gamesInvolvingSelectedPlayer.sort((g1, g2) => {
+        let g1Month: number = Number(g1.gameDate.substring(5, 7));
+        let g1Day: number = Number(g1.gameDate.substring(8, 10));
+        let g2Month: number = Number(g2.gameDate.substring(5, 7));
+        let g2Day: number = Number(g2.gameDate.substring(8, 10));
+        if (g1Month == g2Month) {
+          if (g1Day < g2Day) return 1;
+          else if (g1Day > g2Day) return -1;
+          else return 0;
+        } else if (g1Month < g2Month) {
+          return 1;
+        } else {
+          return -1;
+        }
+      });
+    }
   }
 
 }
