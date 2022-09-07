@@ -2,18 +2,16 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { doc, setDoc } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
-import { DataService } from '../../../services/data.service';
-import { Player, Game} from '../../../services/data.service';
+import { DataService } from '../../services/data.service';
+import { Player, Game} from '../../services/data.service';
 
 declare var require: any;
-
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  selector: 'app-record-game',
+  templateUrl: './record-game.component.html',
+  styleUrls: ['./record-game.component.scss']
 })
-export class FormComponent implements OnInit {
-
+export class RecordGameComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   cardWidth: string = '';
   allPlayers: Player[] = [];
@@ -148,3 +146,4 @@ export class FormComponent implements OnInit {
     }
   }
 }
+

@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LogInDialogComponent } from './components/toolbar/log-in-dialog/log-in-dialog.component';
 import { TableComponent } from './components/standings/table/table.component';
-import { FormComponent } from './components/standings/form/form.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AboutDialogueComponent } from './components/about-dialogue/about-dialogue.component';
 import { GameHistoryComponent } from './components/game-history/game-history.component';
@@ -38,6 +37,7 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { PlayerRecordsComponent } from './components/player-records/player-records.component';
 import { CardWrapperComponent } from './components/card-wrapper/card-wrapper.component';
 import { MatchListComponent } from './components/match-list/match-list.component';
+import { RecordGameComponent } from './components/record-game/record-game.component';
 
 
 @NgModule({
@@ -45,15 +45,14 @@ import { MatchListComponent } from './components/match-list/match-list.component
     AppComponent,
     LogInDialogComponent,
     TableComponent,
-    FormComponent,
     ToolbarComponent,
     AboutDialogueComponent,
     StandingsComponent,
     GameHistoryComponent,
     GameCardComponent,
     PlayerRecordsComponent,
-    CardWrapperComponent,
     MatchListComponent
+    RecordGameComponent
   ],
   imports: [
     BrowserModule,
@@ -67,14 +66,14 @@ import { MatchListComponent } from './components/match-list/match-list.component
     MatTableModule,
     MatToolbarModule,
     MatCardModule,
-	  MatIconModule,
+    MatIconModule,
     MatSidenavModule,
     MatDatepickerModule,
     MatListModule,
     MatMenuModule,
     MatSelectModule,
     FormsModule,
-	  provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebase),  
     MatGridListModule,
