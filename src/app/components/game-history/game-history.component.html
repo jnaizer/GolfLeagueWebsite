@@ -1,23 +1,38 @@
-<br>
-<h2 style="text-align: center; margin-bottom: 0px;">Game History</h2>
+<mat-card class="mat-elevation-z8" style="margin: 0 auto; margin-bottom: 16px;" [ngStyle]="{ 'width': containerWidth }">
+    <mat-card-title style="text-align: center;">
+        <h2>Game History</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <div *ngIf="games.length != 0; then matchData; else noDataMessage"></div>
 
-<div *ngIf="games.length != 0; then matchData; else noDataMessage"></div>
+        <ng-template #noDataMessage>
+            <h3 style="text-align: center; color:rgba(0, 0, 0, 0.5); padding-top: 10px;">No Game History to Display!</h3>
+        </ng-template>
 
-<ng-template #noDataMessage>
-    <h3 style="text-align: center; color:rgba(0, 0, 0, 0.5); padding-top: 10px;">No Game History to Display!</h3>
-</ng-template>
-
-<ng-template #matchData>
-    <mat-grid-list #matchData cols="1" rowHeight="190px" gutterSize="0px">
-        <mat-grid-tile *ngFor="let game of games">
-            <app-game-card 
-                [gameDate]="game.gameDate"
-                [player1Name]="game.player1Name"
-                [player1Score]="game.player1Score"
-                [player2Name]="game.player2Name"
-                [player2Score]="game.player2Score"
-                [result]="game.result"
-            ></app-game-card>
-        </mat-grid-tile>
-    </mat-grid-list>
-</ng-template>
+        <ng-template #matchData>
+            <mat-accordion>
+                <div *ngFor="let week of weeks">
+                    <mat-expansion-panel 
+                        *ngIf="gamesInWeeks[week].length > 0" 
+                        style="margin: 0 auto;">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Week {{ week + 1 }}</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-grid-list cols="1" rowHeight="190px" gutterSize="0px">
+                            <mat-grid-tile *ngFor="let game of gamesInWeeks[week]">
+                                <app-game-card 
+                                    [gameDate]="game.gameDate"
+                                    [player1Name]="game.player1Name"
+                                    [player1Score]="game.player1Score"
+                                    [player2Name]="game.player2Name"
+                                    [player2Score]="game.player2Score"
+                                    [result]="game.result"
+                                ></app-game-card>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-expansion-panel>
+                </div>
+            </mat-accordion>
+        </ng-template>
+    </mat-card-content>
+</mat-card>
