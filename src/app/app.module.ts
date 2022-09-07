@@ -51,8 +51,9 @@ import { RecordGameComponent } from './components/record-game/record-game.compon
     GameHistoryComponent,
     GameCardComponent,
     PlayerRecordsComponent,
-    MatchListComponent
-    RecordGameComponent
+    MatchListComponent,
+    RecordGameComponent,
+    CardWrapperComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +78,7 @@ import { RecordGameComponent } from './components/record-game/record-game.compon
     provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebase),  
     MatGridListModule,
-    MatExpansionModule
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
