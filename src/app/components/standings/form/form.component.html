@@ -28,9 +28,14 @@
             </div>
 
             <p>
-                <mat-form-field class="name-width">
+                <mat-form-field class="winner-width">
                     <mat-select placeholder="Select Winner" formControlName="result" required>
                         <mat-option *ngFor="let player of playersSelected" [value]="player" >{{ player.name }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="holes-width">
+                    <mat-select placeholder="Holes" formControlName="holes" required>
+                        <mat-option *ngFor="let hole of holes" [value]="hole" >{{ hole }}</mat-option>
                     </mat-select>
                 </mat-form-field>
                 <mat-form-field class="stroke-width">

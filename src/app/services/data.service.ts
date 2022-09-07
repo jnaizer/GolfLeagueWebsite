@@ -3,7 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Observable } from 'rxjs';
 
 export interface Player { name: string, rating: number };
-export interface Game { gameDate: string, player1Name: string, player1Score: number, player2Name: string, player2Score: number, result: string }
+export interface Game { gameDate: string, holes: number, player1Name: string, player1Score: number, player2Name: string, player2Score: number, result: string }
 
 
 @Injectable({
