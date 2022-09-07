@@ -37,6 +37,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from "@angular/fire/compat";
 import { PlayerRecordsComponent } from './components/player-records/player-records.component';
 import { CardWrapperComponent } from './components/card-wrapper/card-wrapper.component';
+import { MatchListComponent } from './components/match-list/match-list.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { CardWrapperComponent } from './components/card-wrapper/card-wrapper.com
     GameHistoryComponent,
     GameCardComponent,
     PlayerRecordsComponent,
-    CardWrapperComponent
+    CardWrapperComponent,
+    MatchListComponent
   ],
   imports: [
     BrowserModule,

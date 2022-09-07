@@ -1,13 +1,41 @@
-<app-card-wrapper>
-    <form>
-        <mat-form-field appearance="fill">
-            <mat-label>Select Player</mat-label>
-            <mat-select [(value)]="selectedPlayerName">
-                <mat-option *ngFor="let player of players" [value]="player.name">
-                    {{ player.name }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <p>{{ selectedPlayerName }}</p>
-    </form>
+<app-card-wrapper style="text-align: center;">
+    <mat-card-title>
+        <h2>Select a Player</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <form>
+            <mat-form-field appearance="fill">
+                <mat-label>Player Selector</mat-label>
+                <mat-select [(value)]="selectedPlayerName" (selectionChange)="onSelectionChange($event)">
+                    <mat-option *ngFor="let player of players" [value]="player.name">
+                        {{ player.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+</app-card-wrapper>
+
+<app-card-wrapper *ngIf="selectedPlayer.name" style="text-align: center;">
+    <mat-card-title>
+        <h1 style="font-weight: 500;">{{ selectedPlayer.name }}</h1>
+    </mat-card-title>
+    <mat-card-content>
+        <div style="display: flex; justify-content: center;">
+            <div style="text-align: right; display: inline-block; margin-right: 8px; width: 50%;">
+                <p style="font-weight: 500;">
+                    Rating: <br>
+                    Average Score: <br>
+                    Overall Record: 
+                </p>
+            </div>
+            <div style="text-align: left; display: inline-block; margin-left: 8px; width: 50%;">
+                {{ selectedPlayer.rating }} <br>
+                {{ selectedPlayerAverageScore }} <br>
+                {{ selectedPlayerRecord }} 
+            </div>
+        </div>
+        <hr>
+        <app-match-list [games]="gamesInvolvingSelectedPlayer"></app-match-list>
+    </mat-card-content>
 </app-card-wrapper>
