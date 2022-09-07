@@ -65,13 +65,13 @@ export class GameHistoryComponent implements OnInit {
         let g2Month: number = Number(g2.gameDate.substring(5, 7));
         let g2Day: number = Number(g2.gameDate.substring(8, 10));
         if (g1Month == g2Month) {
-          if (g1Day < g2Day) return -1;
-          else if (g1Day > g2Day) return 1;
+          if (g1Day < g2Day) return 1;
+          else if (g1Day > g2Day) return -1;
           else return 0;
         } else if (g1Month < g2Month) {
-          return -1;
-        } else {
           return 1;
+        } else {
+          return -1;
         }
       });
     }
