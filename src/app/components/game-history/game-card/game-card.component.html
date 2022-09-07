@@ -2,12 +2,12 @@
     <mat-card-content style="text-align: center;">
         <p style="color: #90A4AE;">{{ gameDate }}</p>
         <div class="player-data">
-            <h3 [ngStyle]="{ 'font-weight': player1Name == result ? '600' : '400', 'width': '65%'}"> {{ player1Name }}</h3>
-            <h3 [ngStyle]="{ 'font-weight': player1Name == result ? '600' : '400', 'width': '35%' }">{{ player1Score}}</h3>
+            <h3 [ngStyle]="{ 'font-weight': player1Name == result ? '500' : '400', 'width': '60%'}"> {{ player1Name }}</h3>
+            <h3 [ngStyle]="{ 'font-weight': player1Name == result ? '500' : '400', 'width': '40%' }">{{ player1Score}}</h3>
         </div>
         <div class="player-data">
-            <h3 [ngStyle]="{ 'font-weight': player2Name == result ? '600' : '400', 'width': '65%' }">{{ player2Name }}</h3>
-            <h3 [ngStyle]="{ 'font-weight': player2Name == result ? '600' : '400', 'width': '35%' }">{{ player2Score}}</h3>
+            <h3 [ngStyle]="{ 'font-weight': player2Name == result ? '500' : '400', 'width': '60%' }">{{ player2Name }}</h3>
+            <h3 [ngStyle]="{ 'font-weight': player2Name == result ? '500' : '400', 'width': '40%' }">{{ player2Score}}</h3>
         </div>
     </mat-card-content>
 </mat-card>
