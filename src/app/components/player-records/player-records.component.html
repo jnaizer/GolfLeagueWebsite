@@ -5,7 +5,7 @@
     <mat-card-content>
         <form>
             <mat-form-field appearance="fill">
-                <mat-label>Player Selector</mat-label>
+                <mat-label>Select Player</mat-label>
                 <mat-select [(value)]="selectedPlayerName" (selectionChange)="onSelectionChange($event)">
                     <mat-option *ngFor="let player of players" [value]="player.name">
                         {{ player.name }}
